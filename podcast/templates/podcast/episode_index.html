@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Episode Index</title>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>Participants</th>
+                <th>Link</th>
+            </tr>
+            {% for episode in episodes %}
+            <tr>
+                <td>{{ episode.title }}</td>
+                <td> {% for participant in episode.participants.all %} {{ participant }} <br> {% endfor %} </td>
+                <td><a href="https://youtu.be/{{episode.youtube_id}}">Click Me :3</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>
