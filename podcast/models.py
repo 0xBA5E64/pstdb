@@ -19,3 +19,13 @@ class Episode(models.Model):
 
     def __str__(self):
         return self.title
+
+class EpisodeSegment(models.Model):
+    title = models.CharField(max_length=80)
+    description = models.TextField()
+    time_start = models.IntegerField()
+    time_end = models.IntegerField()
+    episode = models.ForeignKey(Episode, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.episode} - {self.title}"
